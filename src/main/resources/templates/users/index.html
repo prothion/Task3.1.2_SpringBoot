@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+</head>
+<body>
+<nav>
+    <div>
+        <p>Практическая задача 3.1.1 Spring Boot</p>
+    </div>
+</nav>
+<table bordercolor="black", border="3">
+    <tr>
+        <td>Id</td>
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Возраст</td>
+        <td>Машина</td>
+        <td>Время регистрации</td>
+    </tr>
+    <tr th:each="user:${users}">
+        <td th:text="${user.getId()}"></td>
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getLastname()}"></td>
+        <td th:text="${user.getAge()}"></td>
+        <td th:text="${user.getCar()}"></td>
+        <td th:text="${user.getTimeRegistration()}"></td>
+        <td><a th:href="@{/users/{id}/edit(id=${user.getId()})}">Редактировать</a></td>
+        <td><form th:method="DELETE" th:action="@{users/{id}(id=${user.getId()})}">
+            <input type="submit" value="Удалить">
+        </form></td>
+    </tr>
+</table>
+<br>
+<a th:href="@{/users/new}">Добавить нового пользователя</a>
+</body>
+</html>

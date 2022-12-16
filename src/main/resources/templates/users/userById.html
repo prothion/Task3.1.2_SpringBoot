@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User</title>
+</head>
+<body>
+<nav>
+  <div>
+    <p>Пользователь по Id</p>
+  </div>
+</nav>
+<table bordercolor="black", border="3">
+  <td th:text="${user.getId()}"></td>
+  <td th:text="${user.getName()}"></td>
+  <td th:text="${user.getLastname()}"></td>
+  <td th:text="${user.getAge()}"></td>
+  <td th:text="${user.getCar()}"></td>
+  <td th:text="${user.getTimeRegistration()}"></td>
+</table>
+<a th:href="@{/users}">Обатно на главную</a>
+</body>
+</html>

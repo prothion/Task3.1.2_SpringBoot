@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактирование пользователя</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">
+  <label for="name">Имя</label>
+  <input type="text" th:field="*{name}" id="name">
+  <div style="color:gray" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error text</div>
+  <br>
+  <label for="lastname">Фамилия</label>
+  <input type="text" th:field="*{lastname}" id="lastname">
+  <div style="color:gray" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Error text</div>
+  <br>
+  <label for="age">Возраст</label>
+  <input type="number" th:field="*{age}" id="age">
+  <div style="color:gray" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Error text</div>
+  <br>
+  <label for="car">Машина</label>
+  <input type="text" th:field="*{car}" id="car">
+  <div style="color:gray" th:if="${#fields.hasErrors('car')}" th:errors="*{car}">Error text</div>
+  <br>
+  <br>
+  <input type="submit" value="Изменить">
+</form>
+<a th:href="@{/users}">Отмена</a>
+</body>
+</html>
