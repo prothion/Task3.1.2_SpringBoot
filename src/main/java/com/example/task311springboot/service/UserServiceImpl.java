@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.task311springboot.dao.UserDao;
 import com.example.task311springboot.model.User;
-import com.example.task311springboot.repository.UsersRepository;
 
 import jakarta.transaction.Transactional;
 import java.util.List;
